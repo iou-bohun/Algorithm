@@ -19,4 +19,33 @@
     5. 목적지가 아니면 3부터 다시 시작
     6. 목적지에 도달하면 첫 노드까지 되돌아가며 기록
     7. 기록한 노드들 반전
-  
+  * 코드 정리
+    1. 노드를 담을 Node 클래스 생성
+
+```c#
+ using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class Node
+{
+    public Vector2Int coordinates;
+    public bool isWalkable;
+    public bool isExplored;
+    public bool isPath;
+    
+    public Node(Vector2Int coordinates, bool isWalkable)
+    {
+        this.coordinates = coordinates;
+        this.isWalkable = isWalkable;
+    }
+}
+```
+
+
+
+    3. GridManager 스크립트
+       * 그리드를 생성해준다.
+    4. BFS 알고리즘
+       * 현제 노드의 주변을 탐색 
